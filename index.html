@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mapa de Rutas con Dijkstra</title>
+    <style>
+      canvas {
+        border: 2px solid white;
+      }
+      body {
+        min-height: 100vh;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        background: rgb(2, 0, 36);
+        background: linear-gradient(
+          180deg,
+          rgba(2, 0, 36, 1) 0%,
+          rgba(9, 9, 121, 1) 90%,
+          rgba(0, 212, 255, 1) 100%
+        );
+      }
+      div {
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+        align-items: center;
+      }
+      img {
+        width: 200px;
+        margin-bottom: 10px;
+      }
+      h1 {
+        color: white;
+        text-align: center;
+      }
+      button {
+        padding: 12px 50px;
+        border-radius: 99999px;
+        background-color: rgba(0, 212, 255, 1);
+        font-weight: 900;
+        cursor: pointer;
+      }
+      button:disabled {
+        opacity: 0.6;
+      }
+    </style>
+    <script src="./index.js" defer></script>
+  </head>
+  <body>
+    <div>
+      <img src="./assets/logo.png" alt="" />
+      <h1>
+        Algoritmo de Dijkstra <br />
+        para rutas óptimas
+      </h1>
+      <button id="start">Seleccionar origen</button>
+      <button id="end">Seleccionar destino</button>
+    </div>
+    <canvas id="canvas" width="800" height="600"></canvas>
+  </body>
+</html>
