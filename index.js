@@ -162,12 +162,13 @@ const edges = [
 
 // Variables para manejo de ruta y memoización
 let startNode = null;
+let prevStartNode = null;
 let endNode = null;
 let distances = [];
 let previousNodes = [];
 let visitedEdges = new Set();
 let isAnimating = false;
-let delay = 50; // Retraso en milisegundos (500ms)
+let delay = 50;
 
 function drawGraph() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -207,8 +208,8 @@ function drawGraph() {
 function dijkstra(start, end, callback) {
   // Si el inicio es igual al enterior calculado devuelve directamente la respuesta
   if (
+    start === prevStartNode &&
     previousNodes.length > 0 &&
-    previousNodes[start] === null &&
     previousNodes[end] !== null
   ) {
     callback();
@@ -265,6 +266,7 @@ function dijkstra(start, end, callback) {
   }
 
   step();
+  prevStartNode = start;
 }
 
 // Trazar la ruta óptima encontrada
